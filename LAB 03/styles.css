@@ -1,0 +1,110 @@
+/* Oscar Alexander Vilchis Soto
+Laboratorio 3 -  html conCSS externo  Version sin minificar */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, Helvetica, sans-serif;
+    background-color: #a6b3c0bf;
+    font-size: 1em;
+    color: #000000;
+    margin: 0;
+    line-height: 2;
+}
+
+/* Tag */
+header {
+    background-color: #1f2933;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Tag */
+nav {
+    background-color: #316fa8;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Tag + pseudo-clase */
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration:solid;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Tag */
+main {
+    padding: 20px;
+}
+
+/* Tag */
+section {
+    margin-bottom: 40px;
+    background-color: rgba(255,255,255,0.6);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
+#preguntas {
+    border-left: 6px solid #1f2933;
+}
+
+/* Selector por clase (úsalo en HTML: class="card" en artículos/bloques) */
+.card {
+    background-color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+/* Tag */
+figure {
+    text-align: center;
+}
+
+figure img {
+    width: 250px;
+    max-width: 100%;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid rgba(0,0,0,0.15);
+}
+
+/* Tag */
+form {
+    background-color: rgb(37, 51, 83);
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+/* Tag + pseudo-clase (corrige contraste del botón) */
+button {
+    background-color: #1f2933;
+    color: rgb(42, 44, 72);
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+/* Tag */
+footer {
+    background-color: #1f2933;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
