@@ -1,0 +1,151 @@
+<!--Laboratorio 04 JavaScript - Oscar Alexander Vilchis Soto 
+Se resuelven 5 problemas establecidos +1 de mi elección ( yo escogí uno de gym) así cómo también se resuelven las preguntas 
+del laboratorio-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laboratorio 4 - Oscar Alexander Vilchis Soto</title>
+  <style>
+    body{font-family:Arial;margin:20px}
+    table{border-collapse:collapse;margin-top:10px}
+    td,th{border:1px solid #ccc;padding:6px}
+    .box{border:1px solid #ddd;border-radius:10px;padding:12px;margin:12px 0}
+    button{padding:8px 12px;border-radius:8px;cursor:pointer}
+    pre{background:#f5f5f5;padding:10px;border-radius:10px}
+  </style>
+</head>
+<body>
+
+<h1>Laboratorio 4: Fundamentos de JavaScript</h1>
+<!-- ================== ejercicios del laboratorio4 ================== -->
+<div class="box">
+  <h4>1.-Entrada: un número pedido con un prompt.
+      Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos. Utiliza document.write para producir la salida </h4>
+  <button onclick="ej1()">Ejecutar</button>
+</div>
+
+<div class="box">
+  <h4>2.-Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria.
+     Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo que tardó el usuario en escribir la respuesta.</h4>
+  <button onclick="ej2()">Ejecutar</button>
+  <div id="out2"></div>
+</div>
+
+<div class="box">
+  <h4>3.-Función: contador. Parámetros: Un arreglo de números. Regresa: 
+    La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.
+ contador(arreglo)</h4>
+  <button onclick="demo3()">Demo + pruebas</button>
+  <pre id="out3"></pre>
+</div>
+
+<div class="box">
+  <h4>4.- Función: promedios. Parámetros: Un arreglo de arreglos de números. Regresa: 
+    Un arreglo con los promedios de cada uno de los renglones de la matriz.
+</h4>
+  <button onclick="demo4()">Demo + pruebas</button>
+  <pre id="out4"></pre>
+</div>
+
+<div class="box">
+  <h4>5.-Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.</h4>
+  <button onclick="demo5()">Demo + pruebas</button>
+  <pre id="out5"></pre>
+</div>
+
+<div class="box">
+  <h4>6.- Problema de mi elección:Calculadora de Progreso en el Gimnasio usando 1 objeto + 2 métodos</h4>
+
+<p>Sesión Anterior:</p>
+<input type="number" id="pesoAnt" placeholder="Peso (kg)">
+<input type="number" id="repsAnt" placeholder="Reps">
+
+<p>Sesión Actual:</p>
+<input type="number" id="pesoAct" placeholder="Peso (kg)">
+<input type="number" id="repsAct" placeholder="Reps">
+
+<br><br>
+<button onclick="demo6()">Calcular progreso</button>
+
+<div id="out6"></div>
+
+</div>
+
+<!-- ================== PREGUNTAS ================== -->
+
+<div class="box">
+  <h2>Preguntas</h2>
+
+  <h3>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h3>
+  <p>
+    Para empezar la única semejanza que comparten además del nombre que claramente puede ser similar, es que ambos pueden ser usados para programar orientado a objetos, sin embargo no hay más.  En cuanto a diferencias, encontramos que la primer diferencia es el tipado Java es un lenguaje de programación altamente tipado, o en otras palabras, impone restricciones estrictas sobre los tipos de datos mientras que JavaScript es un lenguaje de tipado dinámico,  la otra gran diferencia radica en cómo se ejecuta cada uno, Java por su parte debe ejecutarse en Java Virtual Machine (JVM),  de esta manera puede correrse el código de manera independiente mientra que  JavaScript está integrado en HTML  y requiere un navegador.
+  </p>
+
+  <h3>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</h3>
+  <p>
+    Date.now()<br>
+    Date.parse()<br>
+    getTime()<br>
+    getSeconds()<br>
+    getDate()
+  </p>
+
+  <h3>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</h3>
+  <p>
+    push()<br>
+    pop()<br>
+    shift()<br>
+    unshift()<br>
+    map()
+  </p>
+
+  <h3>¿Cómo se declara una variable con alcance local dentro de una función?</h3>
+  <p>
+    Para declarar o crear una variable con alcance local en un función se utilizan palabras reservadas tales como var, let y const.
+  </p>
+
+  <h3>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h3>
+  <p>
+    Es considerado cómo una mala práctica, ya que reduce la legibilidad provocando acoplamiento y efectos secundarios impredecibles. Esto dificulta el mantenimiento y puede introducir errores de seguridad difíciles de detectar.
+  </p>
+
+  <h3>Fuentes</h3>
+  <p>
+    Java vs. JavaScript: comparación. (2023, November 3). IONOS Digital Guide.
+    <a href="https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/java-vs-javascript/" target="_blank">
+      https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/java-vs-javascript/
+    </a>
+    <br><br>
+
+    Yüksel, E. (2023, 7 agosto). JavaScript date methods. MEDIUM.
+    <a href="https://medium.com/@ecanyuksel/javascript-date-methods-the-most-commonly-used-date-methods-for-handling-the-dates-7daa938feaa1" target="_blank">
+      https://medium.com/@ecanyuksel/javascript-date-methods-the-most-commonly-used-date-methods-for-handling-the-dates-7daa938feaa1
+    </a>
+    <br><br>
+
+    Arreglos - Aprende desarrollo web | MDN.
+    <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Arrays" target="_blank">
+      https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting/Arrays
+    </a>
+    <br><br>
+
+    Alcance de variables globales y locales.
+    <a href="https://web.dev/articles/global-and-local-scope?hl=es-419" target="_blank">
+      https://web.dev/articles/global-and-local-scope?hl=es-419
+    </a>
+    <br><br>
+
+    ¿Por qué es mala práctica usar variables globales? StackOverflow ES.
+    <a href="https://es.stackoverflow.com/questions/29177/por-qu%C3%A9-es-considerado-una-mala-pr%C3%A1ctica-utilizar-variables-globales" target="_blank">
+      https://es.stackoverflow.com/questions/29177/por-qu%C3%A9-es-considerado-una-mala-pr%C3%A1ctica-utilizar-variables-globales
+    </a>
+  </p>
+</div>
+
+<!-- JS externo -->
+<script src="index.js"></script>
+
+</body>
+</html>
