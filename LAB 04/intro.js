@@ -21,3 +21,12 @@ let videojuego_2 = "Halo";
 //Constantes:
 const precio = 55;
 
+
+// Alcance de las variables 
+{
+    var minecraft = "5 estrellas";
+    let halo = "4 estrellas";
+}
+
+console.log(minecraft); // Funciona, var tiene alcance global
+console.log(halo); // Error, let tiene alcance de bloque
