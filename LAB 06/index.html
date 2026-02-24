@@ -1,0 +1,75 @@
+<!-- Oscar Alexander Vilchis Sto Lab 06 - Programación Orientada a Eventos 
+ Realización del laboratorio 6, Validador de contraseña  -->
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab 6 - Password Validator</title>
+
+  <!-- Bulma (como tu compa) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <section class="section">
+    <div class="container content">
+
+      <!-- Título (lo usaremos para mouseover/mouseout sin click) -->
+      <h1 id="mainPageTitle">Password Validator </h1>
+      <p id="subTitle">Validador de contraseña Lab 08</p>
+
+      <!-- Caja de ayuda dinámica (visibility) -->
+      <div id="helpBox" class="notification is-info is-light">
+        Tip: Haz focus en un campo para ver ayuda.
+      </div>
+
+      <!-- FORM (lo principal del lab) -->
+      <div class="box formBox">
+        <form id="pwForm" novalidate>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input id="pw1" class="input" type="password" placeholder="Mínimo 8 caracteres">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Confirmar password</label>
+            <div class="control">
+              <input id="pw2" class="input" type="password" placeholder="Debe coincidir">
+            </div>
+          </div>
+
+          <button id="btnValidate" class="button is-primary" type="submit">
+            Validar
+          </button>
+        </form>
+
+        <!-- Mensaje final (lo controlaremos con visibility) -->
+        <div id="msg" class="notification mt-4">
+          Estado: esperando tu password 
+        </div>
+
+        <!-- Checklist mínimo (DOM dinámico) -->
+        <ul class="mt-3" id="rules">
+          <li id="rLen">Debe ser de 8+ caracteres</li>
+          <li id="rUpper">Debe contener 1 mayúscula</li>
+          <li id="rDigit">Debe contener 1 número</li>
+          <li id="rMatch">Debe coincidir con confirmación</li>
+        </ul>
+
+        <!-- Un “puntito” para demostrar position/top/left -->
+        <div class="statusWrap">
+          <span>STATUS</span>
+          <span id="dot" class="dot"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="index.js"></script>
+</body>
+</html>
