@@ -1,0 +1,23 @@
+{
+  "name": "clase-con-lalo",
+  "version": "1.0.0",
+  "description": "Proyecto de apoyo a la clase TC2005B",
+  "keywords": [
+    "TEC"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/Oscar-AVS/TC2005-Construcci-n-de-Software-A01713207.git)"
+  },
+  "license": "MIT",
+  "author": "Alex",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
