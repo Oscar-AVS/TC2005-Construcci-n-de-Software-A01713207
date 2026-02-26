@@ -1,4 +1,5 @@
-const http = require('http');
+const express = require('express');
+const router = express.Router();
 
 const html_header = `
 <!DOCTYPE html>
@@ -29,7 +30,7 @@ const html_footer = `
 `;
 
 const html_form = `
-<form action="/new" method="POST">
+<form action="/videojuegos/new" method="POST">
   <div class="field">
     <label for="nombre" class="label">Nombre</label>
     <div class="control">
@@ -59,12 +60,25 @@ const videojuegos = [
   },
 ];
 
-const server = http.createServer( (request, response) => {    
+//Middleware
+router.use((request, response, next) => {
+    console.log('Middleware!');
+    next(); //Le permite a la petición avanzar hacia el siguiente middleware
+});
 
-    if (request.url == "/") {
-        response.setHeader('Content-Type', 'text/html');
-        let html_index = `
-              <a href="/new"><button class="button is-primary">Nuevo videojuego</button></a>
+router.get('/new', (request, response, next) => {
+    response.send(html_header + html_form + html_footer);
+});
+
+router.post('/new', (request, response, next) => {
+    videojuegos.push(request.body);
+    response.redirect('/videojuegos');
+});
+
+router.use((request, response, next) => {
+    console.log('Otro middleware!');
+    let html_index = `
+              <a href="/videojuegos/new"><button class="button is-primary">Nuevo videojuego</button></a>
               <div class="columns">`;
 
         for (let juego of videojuegos) {
@@ -109,39 +123,8 @@ const server = http.createServer( (request, response) => {
                 </div>
               </div>  
           `;
-        response.write(html_header + html_index + html_footer);
-        response.end();
-    } else if (request.url == "/new" && request.method == "GET") {
-        response.setHeader('Content-Type', 'text/html');
-        response.write(html_header + html_form + html_footer);
-        response.end();
-    } else if (request.url == "/new" && request.method == "POST") {
-        
-        const datos_completos = [];
-        request.on('data', (data) => {
-          console.log(data);
-          datos_completos.push(data);
-        });
 
-        request.on('end', () => {
-            const string_datos_completos = Buffer.concat(datos_completos).toString();
-            console.log(string_datos_completos);
-            const nombre = string_datos_completos.split("&")[0].split("=")[1];
-            const imagen = string_datos_completos.split("&")[1].split("=")[1];
-            const nuevo_juego = {
-              nombre: nombre,
-              imagen: imagen,
-            };
-            videojuegos.push(nuevo_juego);
-        });
-
-        response.end();
-    } else {
-        response.setHeader('Content-Type', 'text/html');
-        response.write(html_header + "Error 404" + html_footer);
-        response.end();
-    }
-
+    response.send(html_header + html_index + html_footer); //Manda la respuesta
 });
 
-server.listen(3000);
+module.exports = router; 
