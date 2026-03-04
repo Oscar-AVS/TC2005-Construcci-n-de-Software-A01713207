@@ -1,0 +1,61 @@
+<!-- Oscar Alexander Vilchis Soto A01713207 - Lab 06: Preguntas del laboratorio
+ Con el fin de hacer más legible el código separamos en 2 el laboratorio el Index.html con el validador de contraseñas
+  y este Preguntas.html con las respuestas a las preguntas del laboratorio :D
+  -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Preguntas del Lab 06</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <section class="section">
+
+    <h3 class="title is-6">1) ¿Por qué es buena práctica validar con JavaScript antes de enviar al servidor?</h3>
+        <p>
+          Porque mejora la experiencia del usuario (recibe retroalimentación inmediata), reduce errores comunes,
+          evita peticiones innecesarias al servidor y disminuye carga de procesamiento. Además ayuda a guiar al usuario
+          para que capture datos en el formato correcto desde el inicio.
+        </p>
+
+        <h3 class="title is-6 mt-4">2) ¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</h3>
+        <p>
+          Puedes desactivar JavaScript, modificar el HTML desde DevTools, enviar la petición manualmente con herramientas
+          como Postman/cURL, o interceptar la solicitud y cambiar los valores. Por eso la validación del lado cliente
+          nunca debe considerarse “seguridad real”.
+        </p>
+
+        <h3 class="title is-6 mt-4">3) Si te puedes saltar la seguridad de JavaScript, ¿por qué sigue siendo buena práctica?</h3>
+        <p>
+          Porque su objetivo principal es <strong>usabilidad</strong> y reducción de errores, no seguridad. Aun así,
+          se complementa con validación del lado servidor (la que sí es obligatoria). En conjunto: cliente = buena UX,
+          servidor = seguridad y consistencia.
+        </p>
+      </div>
+
+      <!-- Referencias  -->
+
+      <section class="section">
+        <div class="container">
+        <h2 class="title is-5">Fuentes consultadas</h2>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions" target="_blank">MDN - Regular Expressions</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password" target="_blank">MDN - Input password</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" target="_blank">MDN - Form validation</a></li>
+        </ul>
+        </div>
+      </section>
+
+
+</html>
+
+
+
+
+        
