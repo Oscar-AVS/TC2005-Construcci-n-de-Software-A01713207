@@ -1,0 +1,21 @@
+{
+  "name": "tc2005-construcci-n-de-software-a01713207",
+  "version": "1.0.0",
+  "description": "Repositorio para actividades y laboratorios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oscar-AVS/TC2005-Construcci-n-de-Software-A01713207.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Oscar-AVS/TC2005-Construcci-n-de-Software-A01713207/issues"
+  },
+  "homepage": "https://github.com/Oscar-AVS/TC2005-Construcci-n-de-Software-A01713207#readme"
+}

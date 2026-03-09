@@ -1,0 +1,66 @@
+/* Oscar Alexander Vilchis Soto A01713207 - Lab 06: Estilos CSS para el validador de contraseñas
+ Archivo CSS para el laboratorio 06.
+*/
+
+.formBox {
+  border-radius: 16px;
+}
+
+#rules li {
+  margin: 6px 0;
+  padding-left: 10px;
+  border-left: 4px solid transparent;
+}
+
+#rules li.ok {
+  color: #16a34a;
+  border-left-color: #16a34a;
+}
+
+#rules li.bad {
+  color: #ef4444;
+  border-left-color: #ef4444;
+}
+
+.statusWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  display: inline-block;
+  border: 2px solid rgba(0,0,0,0.15);
+  background: #9ca3af;
+}
+
+.hiddenMsg {
+  display: none;
+}
+
+.hiddenHelp {
+  display: none;
+}
+
+.strengthWrap {
+  margin-top: 10px;
+}
+
+.strengthTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleGlow {
+  text-shadow: 0 0 18px rgba(72, 95, 199, 0.8);
+  letter-spacing: 1px;
+}
+
+.titleAltFont {
+  font-family: "Courier New", Courier, monospace;
+  transform: rotate(-1deg);
+}
