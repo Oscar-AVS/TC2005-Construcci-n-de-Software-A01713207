@@ -1,8 +1,5 @@
 // Laboratorio 11 - A01713207 Oscar Alexander Vilchis Soto
-// Archivo de rutas para la cartelera de películas
-// se definen las rutas para mostrar la lista de películas y los detalles de cada película se utiliza un
-//  archivo de texto para almacenar la información de las películas, lo que permite agregar nuevas películas sin necesidad de una base de datos
-
+// cartelera.routes.js
 const express = require('express');
 const router  = express.Router();
 const fs      = require('fs');

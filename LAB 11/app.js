@@ -1,6 +1,7 @@
 // Laboratorio 11 - A01713207 Oscar Alexander Vilchis Soto 
 // Partiendo del ejemplo realizado en clase con el profesor se adapta esta version que nace desde el lab 10 
 // donde se aplica un estilo de cartelera de pelis para mi laboratorio 11 y subsecuentes
+// app.js
 const express    = require('express');
 const bodyParser = require('body-parser');
 
