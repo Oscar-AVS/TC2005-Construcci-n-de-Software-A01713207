@@ -1,0 +1,30 @@
+{
+  "name": "lab-11",
+  "version": "1.0.0",
+  "description": "Laboratorio 11 Node.js + Expres",
+  "keywords": [
+    "Lab",
+    "11"
+  ],
+  "homepage": "https://github.com/Oscar-AVS/TC2005-Construcci-n-de-Software-A01713207/tree/develop#readme",
+  "bugs": {
+    "url": "https://github.com/Oscar-AVS/TC2005-Construcci-n-de-Software-A01713207/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oscar-AVS/TC2005-Construcci-n-de-Software-A01713207.git#develop"
+  },
+  "license": "ISC",
+  "author": "A01713207 Oscar Alexader Vilchis Soto",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+  "start": "node app.js",
+  "dev": "node --watch app.js"
+},
+  "depend encies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1"
+  }
+  
+}
