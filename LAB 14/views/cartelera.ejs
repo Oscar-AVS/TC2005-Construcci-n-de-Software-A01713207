@@ -1,0 +1,33 @@
+<!-- Lab 14 - A01713207 Oscar Alexander Vilchis Soto -->
+<!-- views/cartelera.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+  <head><%- include('includes/head.ejs') %></head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Cartelera</h1>
+        <p class="subtitle"><%= peliculas.length %> películas</p>
+
+        <div class="columns is-multiline">
+          <% for (let i = 0; i < peliculas.length; i++) { %>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-2by3">
+                    <img src="<%= peliculas[i].imagen %>" alt="Póster de <%= peliculas[i].titulo %>">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <p class="title is-5"><%= peliculas[i].titulo %></p>
+                  <a href="/cartelera/<%= i %>" class="button is-small is-info">Ver detalle</a>
+                </div>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
