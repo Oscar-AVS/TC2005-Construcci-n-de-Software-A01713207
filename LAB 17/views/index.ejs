@@ -1,0 +1,30 @@
+<!--Lab 17- A01713207 - Oscar Alexander Vilchis Soto -->
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head><%- include('includes/head.ejs') %></head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Laboratorio 17 - Interacción con la base de dato</h1>
+        <p class="subtitle">A01713207 — Oscar Alexander Vilchis Soto</p>
+
+        <h2 class="title is-4 mt-4">Preguntas del Laboratorio </h2>
+        <div class="content">
+          <p>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?
+          <br>
+          ¿Qué es SQL injection y cómo se puede prevenir?</p>
+          <ul>
+            <li>Las ventajas de escribir SQL en la capa de modelo, principalmente son separar responsabilidades de acuerdo al MVC,
+               ayuda a darle amntenimiento y es más seguro ya  que se puede centralizar el acceso a la BD y valida las consultas.
+           <li>Es una brecha de seguridad que permite a un atacante interferir con las consultas que una aplicación realiza a 
+            su base de datos. Se puede prevenir si se usan consultas parametrizadas,
+             validar estrictamente la entrada del usuario y aplicar el principio de mínimo privilegio en la base de datos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
