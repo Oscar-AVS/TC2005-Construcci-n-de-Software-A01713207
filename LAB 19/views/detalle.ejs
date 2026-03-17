@@ -1,0 +1,27 @@
+<!-- Lab 19 - A01713207 Oscar Alexander Vilchis Soto -->
+<!-- views/detalle.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+  <head><%- include('includes/head.ejs') %></head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title"><%= peli.titulo %></h1>
+        <div id="detalle-pelicula"
+             data-titulo="<%= peli.titulo %>"
+             data-imagen="<%= peli.imagen %>"
+             style="cursor:pointer; max-width:300px">
+        </div>
+        <br>
+        <p class="content"><%= peli.sinopsis || '' %></p>
+        <br>
+       <% if (privilegios.some(p => p.privilegio === 'editar_pelicula')) { %>
+        <a href="/peliculas/<%= id %>/edit" class="button is-info mt-4">Editar película</a>
+        <% } %>
+        <a href="/cartelera" class="button is-warning mt-4">Volver a cartelera</a>
+      </div>
+    </section>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
