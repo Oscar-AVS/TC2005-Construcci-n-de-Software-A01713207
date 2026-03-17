@@ -1,0 +1,37 @@
+<!-- Lab 18 - A01713207 Oscar Alexander Vilchis Soto -->
+<!-- views/login.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+  <head><%- include('includes/head.ejs') %></head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Iniciar sesión</h1>
+        <% if(error != '') { %>
+          <div class="notification is-danger">
+            <button class="delete"></button>
+            <%= error %>
+          </div>
+        <% } %>
+        <form action="/users/login" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <div class="field">
+            <label for="username" class="label">Username</label>
+            <div class="control">
+              <input id="username" name="username" class="input" type="text" placeholder="e.g. Oscar" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="password" class="label">Password</label>
+            <div class="control">
+              <input id="password" name="password" class="input" type="password" required>
+            </div>
+          </div>
+          <input class="button is-primary" type="submit" value="Entrar">
+          <a href="/users/signup" class="button is-light">Registrarse</a>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
