@@ -1,0 +1,31 @@
+<!-- Lab 22 - A01713207 Oscar Alexander Vilchis Soto -->
+<!-- views/includes/nav.ejs -->
+
+<nav class="navbar is-dark" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-weight-bold" href="/">Cartelera</a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <% if (isLoggedIn) { %>
+        <% if (privilegios.some(p => p.privilegio === 'ver_cartelera')) { %>
+          <a class="navbar-item" href="/cartelera">Ver cartelera</a>
+        <% } %>
+        <% if (privilegios.some(p => p.privilegio === 'agregar_pelicula')) { %>
+          <a class="navbar-item" href="/peliculas/new">Agregar película</a>
+        <% } %>
+      <% } %>
+    </div>
+    <div class="navbar-end">
+      <% if (isLoggedIn) { %>
+        <div class="navbar-item">
+          <span class="has-text-warning">Hola, <%= username %>!</span>
+        </div>
+        <a class="navbar-item" href="/users/logout">Cerrar sesión</a>
+      <% } else { %>
+        <a class="navbar-item" href="/users/login">Iniciar sesión</a>
+        <a class="navbar-item" href="/users/signup">Registrarse</a>
+      <% } %>
+    </div>
+  </div>
+</nav>

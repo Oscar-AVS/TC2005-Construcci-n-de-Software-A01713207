@@ -1,0 +1,38 @@
+<!--Lab 22- A01713207 - Oscar Alexander Vilchis Soto -->
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head><%- include('includes/head.ejs') %></head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Laboratorio 19 - Role Based Acess Control (RBAC)</h1>
+        <p class="subtitle">A01713207 — Oscar Alexander Vilchis Soto</p>
+
+        <h2 class="title is-4 mt-4">Preguntas del Laboratorio </h2>
+        <div class="content">
+          <p>¿En qué consiste el control de acceso basado en roles?
+            Investiguen y describan 2 sistemas, uno que aplique RBAC y uno que no. 
+            Realicen un análisis de las ventajas y desventajas de cada uno con respecto al control de acceso.
+
+          <ul>
+            <li>
+              El RBAC es un modelo de control de acceso, que consiste en asignar privilegios a roles que a su vez son asignados a un usuario.
+              Esto permite una administración más sencilla de los permisos, ya que se pueden agrupar por función o departamento, en lugar de asignar permisos
+               individualmente a cada usuario.            </li>
+            <li>
+              Un sistema que aplica RBAC es el de google Drive donde existen 3 roles en un documento/archivo: propietario, editor o lector.
+              Esto permite que sea facil de administrar, sin emabargo un punto debil es que no puede ser tan flexible en algunos casos especificos.
+            </li>
+            <li>
+              Un sistema que no aplica RBAC es el de la listas de seguidores de instagram ya que ela cceso se basa en configoraciones 
+              personalizadas, por ejemplo quienes son tus cf, quien puede ver historias, enviar mensajes, etc.
+              Esto lo vuelve más flexible en algunos casos, pero también puede ser más difícil de administrar.
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
