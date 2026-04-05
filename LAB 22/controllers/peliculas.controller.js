@@ -11,20 +11,17 @@ exports.getNueva = (req, res) => {
 
 exports.postNueva = (req, res, next) => {
   const titulo   = (req.body.titulo   || '').trim();
-  const imagen   = (req.body.imagen   || '').trim();
   const sinopsis = (req.body.sinopsis || '').trim();
+
+  if (!req.file) return res.redirect('/peliculas/new'); 
+  const imagen = req.file.path;
 
   if (!titulo) return res.redirect('/peliculas/new');
 
   const peli = new Pelicula(titulo, imagen, sinopsis);
   peli.save()
-    .then(() => {
-      res.redirect('/cartelera');
-    })
-    .catch(err => {
-      console.log(err);
-      next(err);
-    });
+    .then(() => res.redirect('/cartelera'))
+    .catch(err => { console.log(err); next(err); });
 };
 
 exports.getEditar = (req, res, next) => {
@@ -41,26 +38,25 @@ exports.getEditar = (req, res, next) => {
         privilegios: req.session.privilegios || [],
       });
     })
-    .catch(err => {
-      console.log(err);
-      next(err);
-    });
+    .catch(err => { console.log(err); next(err); });
 };
 
 exports.postEditar = (req, res, next) => {
   const id       = req.params.id;
   const titulo   = (req.body.titulo   || '').trim();
-  const imagen   = (req.body.imagen   || '').trim();
   const sinopsis = (req.body.sinopsis || '').trim();
 
   if (!titulo) return res.redirect(`/peliculas/${id}/edit`);
 
-  Pelicula.updateById(id, titulo, imagen, sinopsis)
-    .then(() => {
-      res.redirect(`/cartelera/${id}`);
+  Pelicula.fetchOne(id)
+    .then(([rows]) => {
+      const peli = rows[0];
+      if (!peli) return res.status(404).render('404', { title: 'No encontrada' });
+
+      const imagen = req.file ? req.file.path : peli.imagen;
+
+      return Pelicula.updateById(id, titulo, imagen, sinopsis);
     })
-    .catch(err => {
-      console.log(err);
-      next(err);
-    });
+    .then(() => res.redirect(`/cartelera/${id}`))
+    .catch(err => { console.log(err); next(err); });
 };

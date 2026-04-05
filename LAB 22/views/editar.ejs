@@ -8,7 +8,9 @@
     <section class="section">
       <div class="container">
         <h1 class="title">Editar película</h1>
-        <form action="/peliculas/<%= id %>/edit" method="POST">
+        
+        
+        <form action="/peliculas/<%= id %>/edit" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <div class="field">
             <label for="titulo" class="label">Título</label>
@@ -16,10 +18,19 @@
               <input id="titulo" name="titulo" class="input" type="text" value="<%= peli.titulo %>">
             </div>
           </div>
+
           <div class="field">
-            <label for="imagen" class="label">URL del póster</label>
+            <label class="label">Póster actual</label>
+            <% if (peli.imagen) { %>
+              <figure class="image is-128x128" style="margin-bottom: 0.5rem;">
+                <img src="/<%= peli.imagen %>" alt="Póster actual">
+              </figure>
+            <% } else { %>
+              <p class="has-text-grey">Sin imagen</p>
+            <% } %>
+            <label for="imagen" class="label" style="margin-top: 0.5rem;">Cambiar póster (opcional)</label>
             <div class="control">
-              <input id="imagen" name="imagen" class="input" type="text" value="<%= peli.imagen %>">
+              <input id="imagen" name="imagen" class="input" type="file" accept="image/png, image/jpg, image/jpeg">
             </div>
           </div>
           <div class="field">
@@ -31,7 +42,6 @@
           <input class="button is-primary" type="submit" value="Guardar cambios">
           <a href="/cartelera/<%= id %>" class="button is-light">Cancelar</a>
         </form>
-        
       </div>
     </section>
   </body>
