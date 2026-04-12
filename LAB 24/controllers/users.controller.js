@@ -1,4 +1,4 @@
-// Lab 22 - A01713207 Oscar Alexander Vilchis Soto
+// Lab 24 - A01713207 Oscar Alexander Vilchis Soto
 // controllers/users.controller.js
 const User   = require('../models/user');
 const bcrypt = require('bcrypt');

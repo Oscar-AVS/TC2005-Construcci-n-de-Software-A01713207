@@ -1,4 +1,4 @@
-// Lab 22 - A01713207 Oscar Alexander Vilchis Soto
+// Lab 24 - A01713207 Oscar Alexander Vilchis Soto
 // models/pelicula.js
 const db = require('../util/database');
 
@@ -29,6 +29,14 @@ module.exports = class Pelicula {
     return db.execute(
       'UPDATE peliculas SET titulo = ?, imagen = ?, sinopsis = ? WHERE id = ?',
       [titulo, imagen, sinopsis, id]
+    );
+  }
+
+  static search(query) {
+    const like = `%${query}%`;
+    return db.execute(
+      'SELECT * FROM peliculas WHERE titulo LIKE ? OR sinopsis LIKE ?',
+      [like, like]
     );
   }
 

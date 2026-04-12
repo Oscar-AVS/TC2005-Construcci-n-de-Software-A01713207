@@ -1,4 +1,4 @@
-// Lab 22 - A01713207 Oscar Alexander Vilchis Soto
+// Lab 24 - A01713207 Oscar Alexander Vilchis Soto
 // app.js
 const express    = require('express');
 const app        = express();

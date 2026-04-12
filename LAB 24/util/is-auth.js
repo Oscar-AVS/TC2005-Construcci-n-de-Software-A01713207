@@ -1,4 +1,4 @@
-// Lab 22 - A01713207 Oscar Alexander Vilchis Soto
+// Lab 24 - A01713207 Oscar Alexander Vilchis Soto
 // util/is-auth.js
 module.exports = (request, response, next) => {
     if (!request.session.isLoggedIn) {
