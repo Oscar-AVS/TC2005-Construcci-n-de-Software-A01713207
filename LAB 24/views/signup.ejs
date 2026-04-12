@@ -1,0 +1,59 @@
+<!-- Lab 22- A01713207 Oscar Alexander Vilchis Soto -->
+<!-- views/signup.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+  <head><%- include('includes/head.ejs') %></head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Registrarse</h1>
+        <form action="/users/signup" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <div class="field">
+            <label for="username" class="label">Username</label>
+            <div class="control">
+              <input id="username" name="username" class="input" type="text" placeholder="e.g. oscar" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="nombre" class="label">Nombre</label>
+            <div class="control">
+              <input id="nombre" name="nombre" class="input" type="text" placeholder="e.g. Oscar Vilchis" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="password" class="label">Password</label>
+            <div class="control">
+              <input id="password" name="password" class="input" type="password" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="password_confirm" class="label">Confirmar password</label>
+            <div class="control">
+              <input id="password_confirm" name="password_confirm" class="input" type="password" required>
+            </div>
+          </div>
+          <div id="dont_match" class="notification is-warning" style="display:none;">
+            <button class="delete"></button>
+            Las contraseñas no coinciden
+          </div>
+          <input class="button is-primary" type="submit" value="Registrarse">
+          <a href="/users/login" class="button is-light">Ya tengo cuenta</a>
+        </form>
+      </div>
+    </section>
+    <script>
+        const password_confirm = document.getElementById('password_confirm');
+        const password         = document.getElementById('password');
+        const dont_match       = document.getElementById('dont_match');
+        password_confirm.onkeyup = () => {
+            if (password_confirm.value != password.value) {
+                dont_match.style.display = "block";
+            } else {
+                dont_match.style.display = "none";
+            }
+        }
+    </script>
+  </body>
+</html>
