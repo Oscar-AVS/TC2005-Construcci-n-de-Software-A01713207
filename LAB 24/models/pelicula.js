@@ -32,10 +32,11 @@ module.exports = class Pelicula {
     );
   }
 
+  // AJAX - búsqueda por título 
   static search(query) {
     const like = `%${query}%`;
     return db.execute(
-      'SELECT * FROM peliculas WHERE titulo LIKE ? OR sinopsis LIKE ?',
+      'SELECT * FROM peliculas WHERE titulo LIKE ?',
       [like, like]
     );
   }

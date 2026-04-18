@@ -59,4 +59,22 @@ exports.postEditar = (req, res, next) => {
     })
     .then(() => res.redirect(`/cartelera/${id}`))
     .catch(err => { console.log(err); next(err); });
+    
+
+    exports.searchAjax = (req, res, next) => {
+  const query = (req.query.q || '').trim();
+
+  if (!query) {
+    return res.status(200).json({ peliculas: [] });
+  }
+
+  Pelicula.search(query)
+    .then(([rows]) => {
+      res.status(200).json({ peliculas: rows });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: 'Error al buscar películas' });
+    });
+};
 };
