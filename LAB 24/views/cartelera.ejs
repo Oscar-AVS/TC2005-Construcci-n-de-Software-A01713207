@@ -1,0 +1,61 @@
+<!-- Lab 24 - A01713207 Oscar Alexander Vilchis Soto -->
+<!-- views/cartelera.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+  <head><%- include('includes/head.ejs') %></head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Cartelera</h1>
+
+        <div class="field mb-5">
+          <div class="control has-icons-left">
+            <input
+              id="buscador"
+              class="input is-medium"
+              type="text"
+              placeholder="Buscar película por título..."
+              autocomplete="off"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+          <p id="resultado-count" class="help mt-1">
+            <%= peliculas.length %> películas en cartelera
+          </p>
+        </div>
+
+        <div id="grid-peliculas" class="columns is-multiline">
+          <% peliculas.forEach(peli => { %>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-2by3">
+                    <img src="<%= peli.imagen %>" alt="Póster de <%= peli.titulo %>">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <p class="title is-5"><%= peli.titulo %></p>
+                  <a href="/cartelera/<%= peli.id %>" class="button is-small is-info">Ver detalle</a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+
+        <div id="sin-resultados" class="notification is-warning is-hidden">
+          No se encontraron películas para tu búsqueda.
+        </div>
+
+        <div class="notification is-light mt-6">
+        
+        </div>
+
+      </div>
+    </section>
+
+    <script src="/js/buscador.js"></script>
+  </body>
+</html>
