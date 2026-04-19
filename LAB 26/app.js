@@ -1,0 +1,75 @@
+// Lab 24 - A01713207 Oscar Alexander Vilchis Soto
+// app.js
+const express    = require('express');
+const app        = express();
+const path       = require('path');
+const session    = require('express-session');
+const bodyParser = require('body-parser');
+const csrf       = require('csurf');
+const multer     = require('multer');   
+
+const carteleraRoutes = require('./routes/cartelera.routes');
+const peliculasRoutes = require('./routes/peliculas.routes');
+const usersRoutes     = require('./routes/users.routes');
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+app.use(session({
+    secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste',
+    resave: false,
+    saveUninitialized: false,
+}));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads');
+    },
+    filename: (req, file, cb) => {
+        cb(null, new Date().toISOString().replace(/:/g, '-') + '-' + file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if (['image/png', 'image/jpg', 'image/jpeg'].includes(file.mimetype)) {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('imagen'));
+
+const csrfProtection = csrf();
+app.use(csrfProtection);
+
+app.use((request, response, next) => {
+    response.locals.csrfToken   = request.csrfToken();
+    response.locals.isLoggedIn  = request.session.isLoggedIn  || false;
+    response.locals.username    = request.session.username    || '';
+    response.locals.privilegios = request.session.privilegios || [];
+    next();
+});
+
+app.use('/cartelera', carteleraRoutes);
+app.use('/peliculas', peliculasRoutes);
+app.use('/users',     usersRoutes);
+
+app.get('/', (req, res) => {
+    res.render('index', { title: 'Cartelera' });
+});
+
+app.use((error, request, response, next) => {
+    response.status(500).send(`Error interno del servidor: ${error.stack}`);
+});
+
+app.use((request, response, next) => {
+    response.status(404).render('404', { title: '404' });
+});
+
+app.listen(3000);
+console.log('Servidor en http://localhost:3000');

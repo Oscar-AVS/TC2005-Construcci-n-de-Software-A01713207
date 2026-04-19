@@ -1,0 +1,66 @@
+/* A01713207 - Oscar Alexander Vilchis Soto*/
+/* Archivo style.css para el lab12 en adelante*/
+/* Se realizó mediante un prompt con IA de VScode " Crea una hoja de estilos sencilla para una pagina de películas" */
+
+/* Tema  general */
+body {
+    background-color: #1a2236;
+    color: #e0e6f6;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Navbar  */
+.navbar {
+    background-color: #070b39 !important;
+}
+
+.navbar-item, .navbar-burger {
+    color: #a3b9e6 !important;
+}
+
+.navbar-item:hover {
+    background-color: #2c3e5c !important;
+    color: #fff !important;
+}
+
+/* Cards de películas */
+.movie-card {
+    background-color: #2c3e5c;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.movie-card img {
+    width: 120px;
+    border-radius: 6px;
+}
+
+/* Títulos y labels */
+.title, .label {
+    color: #e0e6f6 !important;
+}
+
+/* Inputs con tema oscuro */
+.input {
+    background-color: #2c3e5c !important;
+    border-color: #a3b9e6 !important;
+    color: #e0e6f6 !important;
+}
+
+.input::placeholder {
+    color: #000000 !important;
+}
+
+/* Footer */
+footer {
+    background-color: #22304a;
+    color: #000000;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid #2c3e5c;
+}
