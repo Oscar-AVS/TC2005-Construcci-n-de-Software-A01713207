@@ -34,11 +34,11 @@ module.exports = class Pelicula {
 
   // AJAX - búsqueda por título 
   static search(query) {
-    const like = `%${query}%`;
-    return db.execute(
-      'SELECT * FROM peliculas WHERE titulo LIKE ?',
-      [like, like]
-    );
-  }
+  const like = `%${query}%`;
+  return db.execute(
+    'SELECT * FROM peliculas WHERE titulo LIKE CONCAT("%", ?, "%") OR sinopsis LIKE CONCAT("%", ?, "%")',
+    [query, query]
+  );
+}
 
 };

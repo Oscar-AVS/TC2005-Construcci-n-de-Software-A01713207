@@ -64,6 +64,8 @@ exports.postEditar = (req, res, next) => {
 // AJAX - búsqueda en tiempo real
 exports.searchAjax = (req, res, next) => {
   const query = (req.query.q || '').trim();
+    res.set('Cache-Control', 'no-store');
+
 
   if (!query) {
     return res.status(200).json({ peliculas: [] });
