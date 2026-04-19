@@ -8,9 +8,26 @@
     <section class="section">
       <div class="container">
         <h1 class="title">Cartelera</h1>
-        <p class="subtitle"><%= peliculas.length %> películas</p>
 
-        <div class="columns is-multiline">
+        <div class="field mb-5">
+          <div class="control has-icons-left">
+            <input
+              id="buscador"
+              class="input is-medium"
+              type="text"
+              placeholder="Buscar película por título o sinopsis..."
+              autocomplete="off"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+          <p id="resultado-count" class="help mt-1">
+            <%= peliculas.length %> películas en cartelera
+          </p>
+        </div>
+
+        <div id="grid-peliculas" class="columns is-multiline">
           <% peliculas.forEach(peli => { %>
             <div class="column is-one-quarter-desktop is-half-tablet">
               <div class="card">
@@ -27,7 +44,18 @@
             </div>
           <% }) %>
         </div>
+
+        <div id="sin-resultados" class="notification is-warning is-hidden">
+          No se encontraron películas para tu búsqueda.
+        </div>
+
+        <div class="notification is-light mt-6">
+        
+        </div>
+
       </div>
     </section>
+
+    <script src="/js/buscador.js"></script>
   </body>
 </html>
