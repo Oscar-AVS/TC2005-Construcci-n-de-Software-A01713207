@@ -10,6 +10,7 @@ const canEdit             = require('../util/can-edit');
 
 router.get('/new',       isAuth, canCreate, peliculasController.getNueva);
 router.post('/new',      isAuth, canCreate, peliculasController.postNueva);
+router.get('/search',    isAuth,            peliculasController.searchAjax);
 router.get('/:id/edit',  isAuth, canEdit,   peliculasController.getEditar);
 router.post('/:id/edit', isAuth, canEdit,   peliculasController.postEditar);
 

@@ -59,9 +59,10 @@ exports.postEditar = (req, res, next) => {
     })
     .then(() => res.redirect(`/cartelera/${id}`))
     .catch(err => { console.log(err); next(err); });
-    
+};
 
-    exports.searchAjax = (req, res, next) => {
+// AJAX - búsqueda en tiempo real
+exports.searchAjax = (req, res, next) => {
   const query = (req.query.q || '').trim();
 
   if (!query) {
@@ -76,5 +77,4 @@ exports.postEditar = (req, res, next) => {
       console.log(err);
       res.status(500).json({ error: 'Error al buscar películas' });
     });
-};
 };
